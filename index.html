@@ -1,0 +1,47 @@
+<!--Basta apertar qualquer botão para interagir com o Mario :)-->
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario World</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section>   
+            <img class="mario" src="Mario.gif" alt="">
+            <div class="par"><div class="borda"> </div>
+            <div class="tubo"> </div>
+        </div>
+            
+        
+    </section>
+   
+  <script>
+   const Mario = document.querySelector(`.mario`)
+const par = document.querySelector(`.par`)
+const jump = () =>{
+    Mario.classList.add(`jump`)
+    setTimeout(() =>{
+        Mario.classList.remove(`jump`);
+    }, 1000 )
+}      
+const loop = setInterval(()=>{
+const parPosition = par.offsetLeft
+const MarioPosition = +window.getComputedStyle(Mario).bottom.replace(`px`,``)
+if( parPosition <= 65 && parPosition > 0 && MarioPosition < 50){
+    par.style.animation = `none`
+    par.style.left =`${parPositionpx}px`
+    Mario.style.animation = `none`
+    Mario.style.bottom = `${parPosition}px`
+}
+}, 10)
+
+document.addEventListener("keydown", jump)
+
+loop    
+  </script>
+</body>
+</html>
